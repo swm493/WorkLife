@@ -43,15 +43,12 @@ public class PlayerController : MonoBehaviour
 
     void ActivateInvincible()
     {
-        // blink
-        // gameObject.GetComponent<Renderer>().material.color.a = 0.5f;
-        this.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
+        GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
     }
 
     void DeactivateInvincible()
     {
-        // unblink
-        this.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+        GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
     }
 
     void TakeDamage(int damage)
@@ -64,11 +61,7 @@ public class PlayerController : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        // if(other.gameObject.layer == Layer)
         var enemy = other.gameObject.GetComponent<EnemyBase>();
         TakeDamage(enemy.damage);
-        Debug.Log(enemy.damage);
-        // Debug.Log("enter");
-        // enemy
     }
 }
