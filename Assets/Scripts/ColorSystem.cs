@@ -11,6 +11,7 @@ public class ColorSystem : MonoBehaviour
         ColorSights[idx].SetActive(false);
 
         if (idx == 0) idx = ColorSights.Length - 1;
+        else idx--;
         ColorSights[idx].SetActive(true);
 
         GameManager.Instance.sightColor = (SightColor)idx;
@@ -22,6 +23,7 @@ public class ColorSystem : MonoBehaviour
         ColorSights[idx].SetActive(false);
 
         if (idx == ColorSights.Length - 1) idx = 0;
+        else idx++;
         ColorSights[idx].SetActive(true);
 
         GameManager.Instance.sightColor = (SightColor)idx;
