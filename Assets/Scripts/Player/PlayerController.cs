@@ -7,12 +7,32 @@ public class PlayerController : MonoBehaviour
     public float playerSpeed;
     public int maxHp;
 
-    private int hp;
-    
+    public int hp
+    {
+        get { return _hp; }
+        set
+        {
+            _hp -= value;
+            if (_hp <= 0)
+            {
+                // TODO: destory
+            }
+        }
+    }
+    private int _hp;
+    private bool isInvincible = false;
+    private float invincibleCooldown = 1.0f;
+    private CooldownTimer invincibleCooldownTimer;
+
     void Awake()
     {
         rigidbody = gameObject.GetComponent<Rigidbody2D>();
         GameManager.Instance.Player = gameObject;
+
+        invincibleCooldownTimer = new CooldownTimer(this, invincibleCooldown);
+        invincibleCooldownTimer.OnStart += (object sender, System.EventArgs e) => ActivateInvincible();
+        invincibleCooldownTimer.OnFinished += (object sender, System.EventArgs e) => DeactivateInvincible();
+
     }
 
     void FixedUpdate()
@@ -21,11 +41,32 @@ public class PlayerController : MonoBehaviour
         rigidbody.MovePosition(transform.position + move * Time.deltaTime * playerSpeed);
     }
 
+    void ActivateInvincible()
+    {
+        // blink
+        // gameObject.GetComponent<Renderer>().material.color.a = 0.5f;
+        this.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
+    }
 
+    void DeactivateInvincible()
+    {
+        // unblink
+        this.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+    }
+
+    void TakeDamage(int damage)
+    {
+        if (!isInvincible)
+        {
+            hp -= damage;
+            invincibleCooldownTimer.Activate();
+        }
+    }
     void OnTriggerEnter2D(Collider2D other)
     {
         // if(other.gameObject.layer == Layer)
         var enemy = other.gameObject.GetComponent<EnemyBase>();
+        TakeDamage(enemy.damage);
         Debug.Log(enemy.damage);
         // Debug.Log("enter");
         // enemy
