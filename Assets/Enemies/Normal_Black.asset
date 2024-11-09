@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd3195a587a44e64bbccff574fbb9fc7, type: 3}
   m_Name: Normal_Black
   m_EditorClassIdentifier: 
+  frontSprite: {fileID: -2585419125269243576, guid: 1e3bb517aae5cc24bb17795b80761f70, type: 3}
+  backSprite: {fileID: -1929633207384827727, guid: 8428c1c0eb7431a4f95a98b42396fd66, type: 3}
+  sideSprite: {fileID: -7400164002460032287, guid: d3285ea93fbc8e245b09c850da1bfd66, type: 3}
   color: 0
   type: 0
   maxHp: 2
   speed: 2
   bodyDamage: 1
   attackDamage: 0
+  recognitionDistance: 5
