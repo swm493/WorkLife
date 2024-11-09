@@ -45,3 +45,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sightColor: 0
+  ColorChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3981123992841576694, guid: d3a4ff1a219f82247be049073cd5fe9b, type: 3}
+        m_TargetAssemblyTypeName: ColorApply, Assembly-CSharp
+        m_MethodName: ApplyActive
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2322386937935891448, guid: 4ded0c2bf79b3e14e82b77035c1c6ad6, type: 3}
+        m_TargetAssemblyTypeName: ColorApply, Assembly-CSharp
+        m_MethodName: ApplyActive
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5324489976088134286, guid: 42175902120100148a5a81f79c76fa53, type: 3}
+        m_TargetAssemblyTypeName: ColorApply, Assembly-CSharp
+        m_MethodName: ApplyActive
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

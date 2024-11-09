@@ -1,7 +1,7 @@
 using EnumData;
 using UnityEngine;
 
-public class ColorSystem : MonoBehaviour
+public class ColorManager : MonoBehaviour
 {
     public GameObject[] ColorSights;
 
