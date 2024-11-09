@@ -13,6 +13,8 @@ public class TraceCharacter : MonoBehaviour
     {
         fixedPosition = transform.position;
         agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
     }
 
     //플레이어를 쫓아가도록 설정해야함
