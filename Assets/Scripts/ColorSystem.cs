@@ -1,34 +1,29 @@
+using EnumData;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class ColorSystem : MonoBehaviour
 {
-    MainInputAction action;
-    InputAction moveAction;
+    public GameObject[] ColorSights;
 
-    private void Awake()
+    private void OnPrevious()
     {
-        action = new MainInputAction();
+        int idx = (int)GameManager.Instance.sightColor;
+        ColorSights[idx].SetActive(false);
+
+        if (idx == 0) idx = ColorSights.Length - 1;
+        ColorSights[idx].SetActive(true);
+
+        GameManager.Instance.sightColor = (SightColor)idx;
     }
 
-
-    void Started(InputAction.CallbackContext context)
+    private void OnNext()
     {
-        Debug.Log("started!");
-    }
+        int idx = (int)GameManager.Instance.sightColor;
+        ColorSights[idx].SetActive(false);
 
-    void Performed(InputAction.CallbackContext context)
-    {
-        Debug.Log("performed!");
-    }
+        if (idx == ColorSights.Length - 1) idx = 0;
+        ColorSights[idx].SetActive(true);
 
-    void Canceled(InputAction.CallbackContext context)
-    {
-        Debug.Log("canceled!");
-    }
-
-    void MOVE(float _x, float _y)
-    {
-        this.transform.position = new Vector2(this.transform.position.x + _x, this.transform.position.y + _y);
+        GameManager.Instance.sightColor = (SightColor)idx;
     }
 }
