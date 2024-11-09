@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: 0
   type: 0
-  maxHp: 3
-  speed: 3
-  bodyDamage: 1
+  maxHp: 6
+  speed: 1
+  bodyDamage: 0
   attackDamage: 0

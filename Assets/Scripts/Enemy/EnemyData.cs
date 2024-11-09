@@ -5,6 +5,9 @@ using EnumData;
 public class EnemyData : ScriptableObject
 {
     // TODO: Sprite
+    public Sprite frontSprite;
+    public Sprite backSprite;
+    public Sprite sideSprite;
     public SightColor color;
     public EnemyType type;
     public int maxHp;

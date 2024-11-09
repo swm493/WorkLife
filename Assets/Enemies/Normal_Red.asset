@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd3195a587a44e64bbccff574fbb9fc7, type: 3}
   m_Name: Normal_Red
   m_EditorClassIdentifier: 
-  color: 0
+  color: 2
   type: 0
   maxHp: 5
   speed: 4
-  bodyDamage: 1
+  bodyDamage: 0
   attackDamage: 0
