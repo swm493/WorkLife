@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     void Awake()
     {
         controller = gameObject.GetComponent<CharacterController>();
+        GameManager.Instance.Player = gameObject;
     }
 
     void Update()
