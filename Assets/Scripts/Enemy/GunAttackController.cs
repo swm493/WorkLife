@@ -9,7 +9,8 @@ public class GunAttackController : AttackBaseController
     public override void Attack(EnemyData data)
     {
         Debug.Log("Gun");
-        GameObject bullet = GameManager.Instance.factoryManager.bulletFactory.GetObject(BulletType.EnemyBlack);
+
+        GameObject bullet;
         switch (data.color)
         {
             case SightColor.Black:
@@ -20,6 +21,9 @@ public class GunAttackController : AttackBaseController
                 break;
             case SightColor.Blue:
                 bullet = GameManager.Instance.factoryManager.bulletFactory.GetObject(BulletType.EnemyBlue);
+                break;
+            default:
+                bullet = GameManager.Instance.factoryManager.bulletFactory.GetObject(BulletType.EnemyBlack);
                 break;
         }
         BulletController bulletController = bullet.GetComponent<BulletController>();
@@ -33,5 +37,6 @@ public class GunAttackController : AttackBaseController
         bulletController.speed = data.bulletSpeed;
         bulletController.color = data.color;
         bulletController.transform.position = transform.position;
+        bulletController.gameObject.SetActive(true);
     }
 }
