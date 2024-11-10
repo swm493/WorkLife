@@ -1,3 +1,4 @@
+using EnumData;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.AI;
@@ -41,6 +42,17 @@ public class EnemyBaseController : MonoBehaviour
         UpdateRecognitionStatus();
         HandleDirectionSwitching();
         UpdateSpriteDirection();
+        UpdateColorVisible();
+    }
+
+    void UpdateColorVisible(){
+        if(GameManager.Instance.sightColor == data.color) {
+            gameObject.layer = LayerMask.NameToLayer("Enemy");
+            spriteRenderer.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+        } else {
+            gameObject.layer = LayerMask.NameToLayer("InvisibleEnemy");
+            spriteRenderer.color = new Color(1.0f, 1.0f, 1.0f, 0.1f);
+        }
     }
 
     private void InitializeComponents()
@@ -110,7 +122,7 @@ public class EnemyBaseController : MonoBehaviour
     {
         var playerPosition = GameManager.Instance.Player.transform.position;
         Vector3 directionToPlayer = playerPosition - transform.position;
-        isRecognized = directionToPlayer.magnitude < data.recognitionDistance;
+        isRecognized = directionToPlayer.magnitude < data.recognitionDistance && data.color == GameManager.Instance.sightColor;
 
         if (isRecognized)
         {
