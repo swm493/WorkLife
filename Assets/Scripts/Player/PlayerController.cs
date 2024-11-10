@@ -1,6 +1,7 @@
 using System;
 using UnityEditor.U2D.Aseprite;
 using UnityEngine;
+using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
@@ -30,6 +31,9 @@ public class PlayerController : MonoBehaviour
     private float invincibleCooldown = 1.0f;
     private CooldownTimer invincibleCooldownTimer;
 
+    private float attackCooldown = 0.5f;
+    private CooldownTimer attackCooldownTimer;
+
     void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
@@ -39,6 +43,19 @@ public class PlayerController : MonoBehaviour
         invincibleCooldownTimer = new CooldownTimer(this, invincibleCooldown);
         invincibleCooldownTimer.OnStart += (object sender, System.EventArgs e) => ActivateInvincible();
         invincibleCooldownTimer.OnFinished += (object sender, System.EventArgs e) => DeactivateInvincible();
+
+        attackCooldownTimer = new CooldownTimer(this, attackCooldown);
+        attackCooldownTimer.OnFinished += (_, _) => OnFinishedAttackTimer();
+
+        gameObject.AddComponent<RedPlayerAttackController>();
+    }
+    void OnStartAttackTimer()
+    {
+
+    }
+    void OnFinishedAttackTimer()
+    {
+
     }
 
     void FixedUpdate()
@@ -49,6 +66,17 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetMouseButton((int)MouseButton.Left) && attackCooldownTimer.Activate())
+        {
+            var mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            PlayerAttackBaseController[] attackControllers = GetComponents<PlayerAttackBaseController>();
+            Debug.Log(attackControllers[0]);
+            for (int i = 0; i < attackControllers.Length; i++)
+            {
+                attackControllers[i].Attack(mousePosition);
+            }
+        }
+
         Sprite spriteToSet = null;
         bool flipX = false;
 
@@ -61,7 +89,8 @@ public class PlayerController : MonoBehaviour
         {
             spriteToSet = backSprite;
         }
-        else if(Input.GetKey(KeyCode.S)){
+        else if (Input.GetKey(KeyCode.S))
+        {
             spriteToSet = frontSprite;
         }
         else

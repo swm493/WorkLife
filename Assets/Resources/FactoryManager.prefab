@@ -147,7 +147,7 @@ MonoBehaviour:
   _prefabs:
     _serializedList:
     - Key: 0
-      Value: {fileID: 0}
+      Value: {fileID: 6853346220987947714, guid: 4475e78d66cda754899310644a7737b7, type: 3}
     - Key: 1
       Value: {fileID: 0}
     - Key: 2
