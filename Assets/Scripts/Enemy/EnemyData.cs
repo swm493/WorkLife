@@ -14,5 +14,6 @@ public class EnemyData : ScriptableObject
     public float speed;
     public int bodyDamage;
     public int attackDamage;
+    public float attackCooldown;
     public float recognitionDistance = 5.0f; 
 }

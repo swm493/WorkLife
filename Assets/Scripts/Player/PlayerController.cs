@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        var enemy = other.gameObject.GetComponent<EnemyBase>();
-        TakeDamage(enemy.damage);
+        var enemy = other.gameObject.GetComponent<EnemyBaseController>();
+        TakeDamage(enemy.Damage);
     }
 }
