@@ -1,3 +1,4 @@
+using EnumData;
 using UnityEngine;
 public class GunAttackController : AttackBaseController
 {
@@ -8,11 +9,24 @@ public class GunAttackController : AttackBaseController
     public override void Attack(EnemyData data)
     {
         Debug.Log("Gun");
-        GameObject bullet = Instantiate(bulletPrefab);
+        GameObject bullet = GameManager.Instance.factoryManager.bulletFactory.GetObject(BulletType.EnemyBlack);
+        switch (data.color)
+        {
+            case SightColor.Black:
+                bullet = GameManager.Instance.factoryManager.bulletFactory.GetObject(BulletType.EnemyBlack);
+                break;
+            case SightColor.Red:
+                bullet = GameManager.Instance.factoryManager.bulletFactory.GetObject(BulletType.EnemyRed);
+                break;
+            case SightColor.Blue:
+                bullet = GameManager.Instance.factoryManager.bulletFactory.GetObject(BulletType.EnemyBlue);
+                break;
+        }
         BulletController bulletController = bullet.GetComponent<BulletController>();
 
-        var playerPosition = GameManager.Instance.Player.transform.position;
+        Vector3 playerPosition = GameManager.Instance.Player.transform.position;
 
+        bulletController.gameObject.transform.position = playerPosition;
         bulletController.Damage = data.attackDamage;
         bulletController.direction = Vector3.Normalize(playerPosition - transform.position);
         bulletController.sprite = data.bulletSprite;

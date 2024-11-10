@@ -21,5 +21,5 @@ public class GameManager : MonoSingleton<GameManager>
     }
     private GameObject _player;
 
-
+    public FactoryManager factoryManager;
 }
