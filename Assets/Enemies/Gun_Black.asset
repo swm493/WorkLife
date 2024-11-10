@@ -22,6 +22,6 @@ MonoBehaviour:
   bodyDamage: 1
   attackDamage: 1
   attackCooldown: 2
-  recognitionDistance: 5
-  bulletSpeed: 20
+  recognitionDistance: 10
+  bulletSpeed: 10
   bulletSprite: {fileID: -8275996857731963984, guid: b07f68ebfbae37f4a9a5dbbb478f8fe0, type: 3}

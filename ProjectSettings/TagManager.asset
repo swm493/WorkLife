@@ -17,8 +17,8 @@ TagManager:
   - EnemyBullet
   - Obstacle
   - EXP
-  - 
-  - 
+  - InvisibleEnemy
+  - InvisibleEnemyBullet
   - 
   - 
   - 
