@@ -12,14 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd3195a587a44e64bbccff574fbb9fc7, type: 3}
   m_Name: Gun_Black
   m_EditorClassIdentifier: 
-  frontSprite: {fileID: 0}
-  backSprite: {fileID: 0}
-  sideSprite: {fileID: 0}
+  frontSprite: {fileID: 5231713446618236970, guid: 0443a6bb2f9c535468832e9045ac6811, type: 3}
+  backSprite: {fileID: 1494122277326195442, guid: ee965966f044cc64e8ab4b4eeffc0f4d, type: 3}
+  sideSprite: {fileID: -8968435829693674975, guid: 418ac690d942fef44b3f04c52a4e49d5, type: 3}
   color: 0
-  type: 0
-  maxHp: 0
-  speed: 0
-  bodyDamage: 0
-  attackDamage: 0
-  attackCooldown: 0
+  type: 1
+  maxHp: 4
+  speed: 2
+  bodyDamage: 1
+  attackDamage: 1
+  attackCooldown: 2
   recognitionDistance: 5
+  bulletSpeed: 20
+  bulletSprite: {fileID: 0}

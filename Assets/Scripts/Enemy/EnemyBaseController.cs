@@ -70,7 +70,7 @@ public class EnemyBaseController : MonoBehaviour
         AttackBaseController[] attackControllers = GetComponents<AttackBaseController>();
         for (int i = 0; i < attackControllers.Length; i++)
         {
-            attackControllers[i].Attack();
+            attackControllers[i].Attack(data);
         }
         attackTimer.Activate();
     }
@@ -112,10 +112,12 @@ public class EnemyBaseController : MonoBehaviour
         Vector3 directionToPlayer = playerPosition - transform.position;
         isRecognized = directionToPlayer.magnitude < data.recognitionDistance;
 
-        if(isRecognized){
+        if (isRecognized)
+        {
             attackTimer.Activate();
         }
-        else {
+        else
+        {
             attackTimer.Stop();
         }
     }
