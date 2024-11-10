@@ -1,5 +1,5 @@
 using EnumData;
 
-public class EnemyFactory : Factory<BulletType>
+public class EnemyFactory : Factory<EnemyType>
 {
 }
