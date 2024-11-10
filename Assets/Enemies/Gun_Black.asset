@@ -24,4 +24,4 @@ MonoBehaviour:
   attackCooldown: 2
   recognitionDistance: 5
   bulletSpeed: 20
-  bulletSprite: {fileID: 0}
+  bulletSprite: {fileID: -8275996857731963984, guid: b07f68ebfbae37f4a9a5dbbb478f8fe0, type: 3}
