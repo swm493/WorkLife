@@ -17,5 +17,7 @@ public class GunAttackController : AttackBaseController
         bulletController.direction = Vector3.Normalize(playerPosition - transform.position);
         bulletController.sprite = data.bulletSprite;
         bulletController.speed = data.bulletSpeed;
+        bulletController.color = data.color;
+        bulletController.transform.position = transform.position;
     }
 }
